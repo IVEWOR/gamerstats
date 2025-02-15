@@ -1,4 +1,3 @@
-// prisma/seed.js
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
@@ -33,6 +32,7 @@ async function main() {
                 slug: 'latest-gaming-news',
                 content:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.',
+                imageUrl: 'https://via.placeholder.com/640x360',
                 published: true,
                 authorId: alice.id,
                 categoryId: gamingCategory.id,
@@ -42,6 +42,7 @@ async function main() {
                 slug: 'esports-championship-overview',
                 content:
                     'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                imageUrl: 'https://via.placeholder.com/640x360',
                 published: false,
                 authorId: bob.id,
                 categoryId: esportsCategory.id,
@@ -51,6 +52,7 @@ async function main() {
                 slug: 'guide-to-pro-gaming',
                 content:
                     'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                imageUrl: 'https://via.placeholder.com/640x360',
                 published: true,
                 authorId: alice.id,
                 categoryId: gamingCategory.id,

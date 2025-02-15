@@ -25,10 +25,17 @@ export default async function NewsPage() {
                             <div key={article.id} className="shadow rounded border-b border-primary py-4 px-2">
                                 <h2 className="text-xl font-medium mb-2">
                                     <Link
-                                        href={`/news/${article.id}`}
+                                        href={`/${article.slug}`}
                                         className="border-b border-transparent hover:border-gray-100 w-max"
                                     >{article.title}</Link>
                                 </h2>
+                                {article.imageUrl && (
+                                    <img
+                                        src={"https://placehold.co/640x360"}
+                                        alt={article.title}
+                                        className="rounded-md w-full h-auto mb-4"
+                                    />
+                                )}
                                 <p className="text-sm mb-2">
                                     {new Date(article.createdAt).toLocaleDateString()} by{" "}
                                     {article.author?.name || "Unknown"}

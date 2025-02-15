@@ -7,11 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Articles, Categories and Users
 model Article {
   id         Int      @id @default(autoincrement())
   title      String   @unique
   slug       String   @unique
   content    String
+  imageUrl   String?
   published  Boolean  @default(false)
   createdAt  DateTime @default(now())
   author     User     @relation(fields: [authorId], references: [id])
@@ -28,10 +30,26 @@ model Category {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   name      String
-  email     String   @unique
+  email     String    @unique
   articles  Article[]
-  createdAt DateTime @default(now())
+  createdAt DateTime  @default(now())
 }
 
+// PcParts
+model PcPart {
+  id          Int            @id @default(autoincrement())
+  name        String
+  description String
+  imageUrl    String
+  category    PcPartCategory @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+}
+
+model PcPartCategory {
+  id    Int      @id @default(autoincrement())
+  name  String   @unique
+  slug  String   @unique
+  parts PcPart[]
+}
