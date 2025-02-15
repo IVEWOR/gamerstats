@@ -5,10 +5,10 @@ const prisma = new PrismaClient();
 async function main() {
     // Create categories
     const gamingCategory = await prisma.category.create({
-        data: { name: 'Gaming' },
+        data: { name: 'Gaming', slug: 'gaming' },
     });
     const esportsCategory = await prisma.category.create({
-        data: { name: 'Esports' },
+        data: { name: 'Esports', slug: 'esports' },
     });
 
     // Create users
@@ -30,6 +30,7 @@ async function main() {
         data: [
             {
                 title: 'Latest Gaming News',
+                slug: 'latest-gaming-news',
                 content:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.',
                 published: true,
@@ -38,6 +39,7 @@ async function main() {
             },
             {
                 title: 'Esports Championship Overview',
+                slug: 'esports-championship-overview',
                 content:
                     'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                 published: false,
@@ -46,6 +48,7 @@ async function main() {
             },
             {
                 title: 'Guide to Pro Gaming',
+                slug: 'guide-to-pro-gaming',
                 content:
                     'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
                 published: true,
